@@ -14,12 +14,12 @@ const getOne = (req, res) => {
 
 const create = (req,res) => {
     const user = db.create(req.body);
-    return res.status(201).json(user);   
+    return res.status(201).json(user[user.length-1]);   
 };
 
 const update = (req, res) => {
     const user = db.update(req.params.id, req.body);
-    return res.status(200).json(user);
+    return res.status(200).json(user[req.params.id]);
 };
 
 const remove = (req,res) => {

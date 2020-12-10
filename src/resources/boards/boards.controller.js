@@ -1,9 +1,22 @@
 const persimon = require('../../utils/persimon');
-const db = persimon('/assets/boards.json'); // Relative to the project root
+const db = persimon('/assets/boards.json');
+const pinsDb = persimon('/assets/pins.json'); // Relative to the project root
+
+const getNumPins = ( id ) => {
+  const pins = pinsDb.all();
+  let numPins = 0;
+  pins.forEach(element => {
+    if( element.board === id) numPins++;
+  });
+  return numPins;
+}
 
 
 const getAll = (req, res) => {
   const boards = db.all();
+  boards.forEach( element => {
+    element.numPins = getNumPins(element.id);
+  })
   return res.status(200).json(boards);
 };
 
@@ -19,7 +32,7 @@ const create = (req,res) => {
 
 const update = (req, res) => {
     const board = db.update(req.params.id, req.body);
-    return res.status(200).json(board);
+    return res.status(200).json(board[req.params.id]);
 };
 
 const remove = (req,res) => {
