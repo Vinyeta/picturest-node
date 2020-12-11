@@ -12,5 +12,4 @@ router
     .patch(boardsController.update)
     .delete(boardsController.remove)
 
-
 module.exports = router;
