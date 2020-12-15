@@ -9,6 +9,7 @@ const boardsRouter = require('./resources/boards/boards.router');
 const usersRouter = require('./resources/users/users.router');
 const jwt = require('express-jwt');
 const dotenv = require("dotenv");
+const mongo = require('./config/mongo');
 
 
 
@@ -19,9 +20,6 @@ dotenv.config();
 
 
 const app = express();
-
-const persimon = require('./utils/persimon');
-const db = persimon('/assets/users.json');
 
 app.disable('x-powered-by');
 

@@ -1,29 +1,28 @@
-const persimon = require('../../utils/persimon');
-const db = persimon('/assets/users.json'); // Relative to the project root
+const userModel = require('./users.model');
 
 
 const getAll = (req, res) => {
-  const users = db.all();
+  const users = userModel.all();
   return res.status(200).json(users);
 };
 
 const getOne = (req, res) => {
-  const user = db.get(req.params.id);
+  const user = userModel.get(req.params.id);
   return res.status(200).json(user);
 };
 
 const create = (req,res) => {
-    const user = db.create(req.body);
-    return res.status(201).json(user[user.length-1]);   
+    const usersUpdated = userModel.create(req.body);
+    return res.status(201).json(usersUpdated);  
 };
 
 const update = (req, res) => {
-    const user = db.update(req.params.id, req.body);
-    return res.status(200).json(user[req.params.id]);
+    const user = userModel.update(req.params.id, req.body);
+    return res.status(200).json(user);
 };
 
 const remove = (req,res) => {
-    const user = db.delete(req.params.id);
+    const user = userModel.delete(req.params.id);
     return res.status(200).json(user);
 };
 
