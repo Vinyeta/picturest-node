@@ -1,1 +1,37 @@
-[{"id":0,"author":0,"title":"NBA","collaborators":[2],"pins":[]},{"id":1,"author":2,"title":"Sunsets","collaborators":[0],"pins":[]},{"id":2,"author":1,"title":"Pets","collaborators":[1],"pins":[]},{"author":1,"collaborators":[],"id":3},{"author":1,"collaborators":[],"id":4}]
+[
+    {
+        "id": 0,
+        "author": "5fdce9f31865dd24ef291149",
+        "title": "NBA",
+        "collaborators": [
+            2
+        ]
+    },
+    {
+        "id": 1,
+        "author": 2,
+        "title": "Sunsets",
+        "collaborators": [
+            0
+        ],
+    },
+    {
+        "id": 2,
+        "author": 1,
+        "title": "Pets",
+        "collaborators": [
+            1
+        ],
+        "pins": []
+    },
+    {
+        "author": 1,
+        "collaborators": [],
+        "id": 3
+    },
+    {
+        "author": 1,
+        "collaborators": [],
+        "id": 4
+    }
+]

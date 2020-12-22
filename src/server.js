@@ -9,15 +9,14 @@ const boardsRouter = require('./resources/boards/boards.router');
 const usersRouter = require('./resources/users/users.router');
 const jwt = require('express-jwt');
 const dotenv = require("dotenv");
-const mongo = require('./config/mongo');
 
+dotenv.config();
+
+const mongo = require('./config/mongo');
 
 
 var path = require('path');
 global.appRoot = path.resolve(__dirname);
-
-dotenv.config();
-
 
 const app = express();
 

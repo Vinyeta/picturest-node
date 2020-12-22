@@ -1,13 +1,13 @@
 const userModel = require('./users.model');
 
 
-const getAll = (req, res) => {
-  const users = userModel.all();
+const getAll = async (req, res) => {
+  const users = await userModel.all();
   return res.status(200).json(users);
 };
 
-const getOne = (req, res) => {
-  const user = userModel.get(req.params.id);
+const getOne = async (req, res) => {
+  const user = await userModel.get(req.params.id);
   return res.status(200).json(user);
 };
 
@@ -22,7 +22,7 @@ const update = (req, res) => {
 };
 
 const remove = (req,res) => {
-    const user = userModel.delete(req.params.id);
+    const user = userModel.remove(req.params.id);
     return res.status(200).json(user);
 };
 
