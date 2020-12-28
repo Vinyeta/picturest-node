@@ -58,11 +58,16 @@ const update = (_id, updatedpin) => {
       });
     }
 
+    const getByBoardId = async ( id )=> {
+      return await PinModel.find({'board': id});
+    }
+
 
 module.exports = {
     create,
     get,
     all,
     update,
-    remove
+    remove,
+    getByBoardId
   };

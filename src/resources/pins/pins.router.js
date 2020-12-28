@@ -11,6 +11,10 @@ router
     .get(pinsController.getOne)
     .patch(pinsController.update)
     .delete(pinsController.remove)
+    
+router  
+    .route('/board/:id')
+    .get(pinsController.getByBoardId)
 
 
 module.exports = router;

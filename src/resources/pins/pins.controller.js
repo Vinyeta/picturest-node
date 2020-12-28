@@ -27,10 +27,16 @@ const remove = (req,res) => {
     return res.status(200).json(pin);
 };
 
+const getByBoardId = async (req,res) => {
+  const pins = await pinModel.getByBoardId(req.params.id);
+  return res.status(200).json(pins);
+}
+
 module.exports = {
   getAll,
   getOne,
   create,
   update,
-  remove
+  remove,
+  getByBoardId
 };

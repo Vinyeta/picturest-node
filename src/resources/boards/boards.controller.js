@@ -1,13 +1,7 @@
 const boardModel = require('./boards.model');
+const pinModel = require('../pins/pins.model');
 
-const getNumPins = ( id ) => {
-  const pins = pinsboardModel.all();
-  let numPins = 0;
-  pins.forEach(element => {
-    if( element.board === id) numPins++;
-  });
-  return numPins;
-}
+
 
 
 const getAll = async (req, res) => {
@@ -17,6 +11,7 @@ const getAll = async (req, res) => {
 
 const getOne = async (req, res) => {
   const board = await boardModel.get(req.params.id);
+  board.hola = 'hola';
   return res.status(200).json(board);
 };
 

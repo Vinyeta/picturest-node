@@ -13,12 +13,6 @@ const boardModelSchema = mongoose.Schema({
       ref: 'UserModel'
     }
   ],
-  pins: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'PinModel'
-    }
-  ]
 });
 
 // Compile model from schema
@@ -35,7 +29,7 @@ const create = (board) => {
 };
 
 const get = async (id) => {
-  return await boardModel.findOne({'_id': id}).populate('author');
+  return await boardModel.findOne({'_id': id});
 }
 
 
