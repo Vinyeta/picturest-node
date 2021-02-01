@@ -10,8 +10,9 @@ const getAll = async (req, res) => {
 };
 
 const getOne = async (req, res) => {
-  const board = await boardModel.get(req.params.id);
-  board.hola = 'hola';
+  let board =  await boardModel.get(req.params.id);
+  let filteredPins =  await pinModel.getPinsByBoardId(req.params.id);
+  board = {board, 'pins':filteredPins};
   return res.status(200).json(board);
 };
 

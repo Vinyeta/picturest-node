@@ -28,7 +28,7 @@ const remove = (req,res) => {
 };
 
 const getByBoardId = async (req,res) => {
-  const pins = await pinModel.getByBoardId(req.params.id);
+  const pins = await pinModel.getPinsByBoardId(req.params.id);
   return res.status(200).json(pins);
 }
 

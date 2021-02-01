@@ -58,7 +58,7 @@ const update = (_id, updatedpin) => {
       });
     }
 
-    const getByBoardId = async ( id )=> {
+    const getPinsByBoardId = async ( id )=> {
       return await PinModel.find({'board': id});
     }
 
@@ -69,5 +69,5 @@ module.exports = {
     all,
     update,
     remove,
-    getByBoardId
+    getPinsByBoardId
   };

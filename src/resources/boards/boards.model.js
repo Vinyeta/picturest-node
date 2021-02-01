@@ -29,7 +29,7 @@ const create = (board) => {
 };
 
 const get = async (id) => {
-  return await boardModel.findOne({'_id': id});
+  return await boardModel.findOne({'_id': id}).populate('author', 'userName');
 }
 
 
