@@ -1,10 +1,16 @@
 const { Router } = require('express');
 const pinsController = require('./pins.controller');
 const router = Router();
+const { body } = require('express-validator');
+
 
 router.route('/')
     .get(pinsController.getAll)
-    .post(pinsController.create);
+    .post(  
+            body("urlImage").isURL(),
+            body("source").isURL(),
+            pinsController.create
+            );
 
 router
     .route('/:id')

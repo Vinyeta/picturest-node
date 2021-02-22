@@ -1,4 +1,6 @@
 const userModel = require('./users.model');
+const {validationResult} = require('express-validator');
+
 
 
 const getAll = async (req, res) => {
@@ -12,8 +14,13 @@ const getOne = async (req, res) => {
 };
 
 const create = (req,res) => {
-    const usersUpdated = userModel.create(req.body);
-    return res.status(201).json(usersUpdated);  
+    
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json( {errors: errors.array()} );
+    }       
+      const usersUpdated = userModel.create(req.body);
+      return res.status(201).json(usersUpdated); 
 };
 
 const update = (req, res) => {
