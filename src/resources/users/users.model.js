@@ -1,5 +1,3 @@
-
-
 const mongoose = require('mongoose');
 
 // Define model schema

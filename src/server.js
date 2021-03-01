@@ -12,11 +12,6 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const mongo = require('./config/mongo');
-
-
-var path = require('path');
-global.appRoot = path.resolve(__dirname);
 
 const app = express();
 
@@ -31,6 +26,9 @@ app.use('/', authRouter);
 app.use('/api/pins', pinsRouter);
 app.use('/api/boards', boardsRouter);
 app.use('/api/users', usersRouter);
+app.use('/healthcheck', (req,res) => {
+  return res.status(200).json({ message: 'OK' })
+})
 
 app.get('/protected', jwt({ secret:process.env.TOKEN_SECRET, algorithms:['HS256'] }), (req,res) => {
   res.send('protected');
